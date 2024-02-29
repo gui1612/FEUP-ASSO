@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 #define MAX_ROLLS 21  // Maximum number of rolls in a game
 #define MAX_FRAMES 10 // Maximum number of frames in a game
@@ -71,6 +72,11 @@ int* read_game(char *filename, int *num_rolls) {
 }
 
 int main(int argc, char *argv[]) {
+    clock_t start, end;
+    double cpu_time_used;
+
+    start = clock();        // Record start time
+
     if (argc != 2) {
         printf("Usage: %s <input_file>\n", argv[0]);
         return EXIT_FAILURE;
@@ -87,9 +93,15 @@ int main(int argc, char *argv[]) {
         return EXIT_FAILURE;
 
     int score = calculate_score(rolls, num_rolls);
+    end = clock(); // Record end time
 
     printf("Game Score: %d\n", score);
 
+    cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC; // Calculate elapsed time
+
+    printf("Procedural Approach Time: %f seconds\n", cpu_time_used);
+
+    // Freeing the malloc'd memory
     free(rolls);
 
     return EXIT_SUCCESS;

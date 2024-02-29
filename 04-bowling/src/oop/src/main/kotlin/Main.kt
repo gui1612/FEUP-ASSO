@@ -1,6 +1,7 @@
 package org.example
 
 fun main(args: Array<String>) {
+
     if (args.size != 1) {
         println("Usage: java -jar oop.jar <input_file>");
         return;
@@ -12,5 +13,5 @@ fun main(args: Array<String>) {
 
     val score = game.calculateScore();
 
-    println("Game Score: %d".format(score));
+    println("Game Score: $score");
 }

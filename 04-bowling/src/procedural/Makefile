@@ -2,7 +2,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 TARGET = main
 INPUT_DIR = input
-INPUT_FILE = b7x.txt
+INPUT_FILE = 1M.txt
 
 all: $(TARGET)
 
